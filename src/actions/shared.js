@@ -5,7 +5,7 @@ import {setAuthedUser} from './authedUser'
 
 const AUTHED_ID = "tylermcginnis"
 
-const handleInitialData =  function() {
+export function handleInitialData() {
     return (dispatch) => {
         return getInitialData()
             .then(({users, polls}) => {
@@ -15,5 +15,3 @@ const handleInitialData =  function() {
             })
     }
 }
-
-export default handleInitialData;
