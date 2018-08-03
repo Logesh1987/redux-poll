@@ -5,11 +5,21 @@ import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading-bar'
 import Leaderboard from './Leaderboard'
 import Addpoll from './Addpoll'
+import Poll from './Poll'
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+
+const Routes = () => (
+  <div>    
+    <Route exact path='/' component={Dashboard} />
+    <Route path='/leaderboard' component={Leaderboard} />
+    <Route path='/addpoll' component={Addpoll} />
+    <Route path='/poll/:id' component={Poll} />
+  </div>
+)
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <LoadingBar />
         <Router>
           <div className="container">
             <div className="nav">              
@@ -27,14 +38,13 @@ class App extends Component {
                 <li><Link to='/addpoll'>Add Poll</Link></li>
               </ul>
               <hr />
+              <br /><br />
             </div>
               {
                 this.props.loading ?
-                <LoadingBar /> :
-                <Route exact path='/' component={Dashboard} />
+                null :
+                <Routes />
               }
-            <Route path='/leaderboard' component={Leaderboard} />
-            <Route path='/addpoll' component={Addpoll} />
           </div>
         </Router>
       </div>

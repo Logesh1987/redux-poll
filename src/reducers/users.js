@@ -10,12 +10,12 @@ export function users(state = {}, action) {
             }
         case ADD_POLL : 
             const poll = action.poll;
-            const {user, id} = poll;
+            const {author, id} = poll;
             return {
                 ...state,
-                [user]: {
-                    ...state[user],
-                    polls: state[user].polls.concat(id)
+                [author]: {
+                    ...state[author],
+                    polls: state[author].polls.concat(id)
                 }
             }
         default :

@@ -23,10 +23,9 @@ export function handleAddPoll(poll, action) {
         dispatch(showLoading())
         return savePoll({
             ...poll,
-            user: authedUser
+            author: authedUser
         })
             .then((poll) => dispatch(addPoll(poll)))
             .then(() => dispatch(hideLoading()))
-        
     }
 }

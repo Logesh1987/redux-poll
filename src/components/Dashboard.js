@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 
 class Dashboard extends Component {
     state = {
@@ -22,9 +27,9 @@ class Dashboard extends Component {
                     <button style={{textDecoration: showAnswered === true ? 'underline' : null}} onClick={this.showAnswered}>Answered</button>
                 </div>
                 <ul className="dashboard-list">
-                    {list.map((poll) => (
-                         <li key={poll.id}>{poll.question}</li>
-                    ))}
+                        {list.map((poll) => (
+                            <li key={poll.id}><Link to={`poll/${poll.id}`}>{poll.question}</Link></li>
+                        ))}
                 </ul>
             </div>
         )

@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {handleAddPoll} from '../actions/poll'
 import LoadingBar from 'react-redux-loading-bar'
-import {Route,  Redirect } from 'react-router';
-
+import { Route, Redirect } from 'react-router'
 
 class Addpoll extends Component {
     state = {
@@ -28,16 +27,13 @@ class Addpoll extends Component {
         e.preventDefault()
         this.props.dispatch(handleAddPoll(this.state))
             .then(() => {
-                <Route exact path='/' render={() => {<Redirect to="/"/>}} />
-                // <Redirect to="/"/>
+                this.props.history.push('/');
             })
     }
     render () {
         const {question, a, b, c, d} = this.state;
-        const saved = null;
         return (
             <div>
-                <LoadingBar />
                 <form className="add-form" onSubmit={this.handleSubmit}>
                     <h3>What is your question?</h3>
                     <input type="text" value={question} onChange={this.handleChange} name="question" className="input" />
