@@ -10,17 +10,19 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect 
+  Redirect,
+  Switch
 } from 'react-router-dom'
 
 const Routes = () => (
   <div>  
-    <Redirect from='/redux-poll/build/' to='/'/>  
-    {/* <Route path='/redux-poll/build/' render={()=> (<Redirect to="/"/>)} /> */}
-    <Route exact path='/' component={Dashboard} />
-    <Route path='/leaderboard' component={Leaderboard} />
-    <Route path='/addpoll' component={Addpoll} />
-    <Route path='/poll/:id' component={Poll} />
+    <Switch>
+      <Redirect from='/redux-poll/build/' to='/'/>  
+      <Route exact path='/' component={Dashboard} />
+      <Route path='/leaderboard' component={Leaderboard} />
+      <Route path='/addpoll' component={Addpoll} />
+      <Route path='/poll/:id' component={Poll} />
+    </Switch>
   </div>
 )
 
