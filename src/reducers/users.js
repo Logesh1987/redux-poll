@@ -1,5 +1,5 @@
 import {RECEIVE_USERS } from '../actions/user'
-import {ADD_POLL} from '../actions/poll'
+import {ADD_POLL, ADD_VOTE} from '../actions/poll'
 
 export function users(state = {}, action) {
     switch (action.type) {
@@ -16,6 +16,14 @@ export function users(state = {}, action) {
                 [author]: {
                     ...state[author],
                     polls: state[author].polls.concat(id)
+                }
+            }
+        case ADD_VOTE :
+            return {
+                ...state,
+                [action.authedUser] : {
+                    ...state[action.authedUser],
+                    answers : [...state[action.authedUser].answers, action.id]
                 }
             }
         default :
