@@ -9,12 +9,13 @@ import Poll from './Poll'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect 
 } from 'react-router-dom'
 
 const Routes = () => (
   <div>    
-    <Route exact path='/redux-poll/build/' component={Dashboard} />
+    <Route path='/redux-poll/build' render={()=> (<Redirect to="/"/>)} />
     <Route exact path='/' component={Dashboard} />
     <Route path='/leaderboard' component={Leaderboard} />
     <Route path='/addpoll' component={Addpoll} />
