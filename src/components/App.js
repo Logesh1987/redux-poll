@@ -15,7 +15,8 @@ import {
 
 const Routes = () => (
   <div>    
-    <Route path='/redux-poll/build/' render={()=> (<Redirect to="/"/>)} />
+    {/* <Route path='/redux-poll/build/' render={()=> (<Redirect to="/"/>)} /> */}
+    <Route path='/redux-poll/build/' component={Dashboard} />
     <Route exact path='/' component={Dashboard} />
     <Route path='/leaderboard' component={Leaderboard} />
     <Route path='/addpoll' component={Addpoll} />
